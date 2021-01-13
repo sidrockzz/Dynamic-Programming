@@ -1,11 +1,16 @@
 #include<bits/stdc++.h>
 using namespace std;
-
+//memoization
+long long term[10000];
 long long fib(long long n){
-    if (n<=2) return 1;
-    return fib(n-1)+fib(n-2);
+    if (n<=1) return n;
+    if (term[n]!=0) return term[n];
+    else{
+        term[n]=fib(n-1)+fib(n-2);
+        return term[n];
+    }
 }
 
 int main(){
-    cout<<fib(20);
+    cout<<fib(100);
 }
